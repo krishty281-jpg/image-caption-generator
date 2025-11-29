@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Caption Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(skyblue,white);
+            margin: 200px;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .caption {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            background-color: #fff;
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Image Caption Generator</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label for="image"><strong>Select an image:</strong></label><br>
+        <input type="file" name="image" id="image" accept="image/*" required><br>
+        <button type="submit">Generate Caption</button>
+    </form>
+
+    
+        <div>
+            <img src="{{ image_path }}" alt="Uploaded Image">
+        </div>
+    
+
+        <div class="caption">
+            <h3>Generated Caption:</h3>
+            <p>{{ caption }}</p>
+        </div>
+</body>
+</html>
